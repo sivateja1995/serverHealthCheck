@@ -1,11 +1,9 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
 
-const blogSchema = new Schema({
- name:{
-     type:string
- }  
-});
+const schema = new mongoose.Schema({
+    sessionId:{type:Number},
+    res:[{_id:false,queId:Number,resNo:Number}]
+})
 
-const Blog = mongoose.model('Blog', blogSchema);
-module.exports = Blog;
+const responseModel = mongoose.model("responseModel",schema);
+module.exports  =  responseModel;
